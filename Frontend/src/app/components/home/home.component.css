@@ -1,0 +1,19 @@
+.as {
+    border: 1px solid #212529;
+    /*anchura, estilo y color borde*/
+    padding: 10px;
+    /*espacio alrededor texto*/
+    background-color: #212529;
+    /*color botón*/
+    color: #ffffff;
+    /*color texto*/
+    text-decoration: none;
+    /*decoración texto*/
+    text-transform: uppercase;
+    /*capitalización texto*/
+    font-family: 'Helvetica', sans-serif;
+    /*tipografía texto*/
+    border-radius: 50px;
+    /*bordes redondos*/
+    margin-left: 45%;
+}

@@ -1,0 +1,28 @@
+### crear curso
+POST http://localhost:5000/cursos
+Content-Type: application/json
+
+{
+    "nombre": "JavaScript",
+    "precio": "250000",
+    "descripcion": "curso que permite a las personas poder tocar el instrumento que deseen y de esa manera impulsar el arte y la expresion musical en nuestro pais",
+    "imagen": "https://media.fanaticguitars.com/2021/01/guitarra-clasica-1024x683.jpg",
+    "videoUrl": "https://www.youtube.com/embed/UxlSiLBleX4"
+}
+
+### listar cursos
+GET http://localhost:5000/cursos
+
+### istar un curso por id
+GET http://localhost:5000/cursos/6092021b363b3015082d9284
+
+### actualizar curso
+PUT http://localhost:5000/cursos/609204fcb8ffe843e48c052c
+Content-Type: application/json
+
+{
+    "nombre": "Unity"
+}
+
+### istar un curso por id
+DELETE http://localhost:5000/cursos/6092021b363b3015082d9284
