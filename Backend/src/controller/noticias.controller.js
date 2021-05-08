@@ -17,7 +17,7 @@ export const createNoticia = async (req, res) => {
 }
 
 export const listarNoticias = async (req, res) => {
-    const noticiasListadas = await Noticias.find().sort({updatedAt: -1})
+    const noticiasListadas = await Noticia.find().sort({updatedAt: -1})
 
     res.status(200).json(noticiasListadas)
 }
@@ -25,7 +25,7 @@ export const listarNoticias = async (req, res) => {
 export const listarNoticiaById = async (req, res) => {
     console.log(req.params)
 
-    const noticiaListada = await Noticias.findById(req.params.noticiaId)
+    const noticiaListada = await Noticia.findById(req.params.noticiaId)
 
     if (noticiaListada !== null) res.status(200).json(noticiaListada)
     else res.status(401).json({msg: "La noticia no existe"})
@@ -33,7 +33,7 @@ export const listarNoticiaById = async (req, res) => {
 
 export const actNoticia = async (req, res) => {
     try {
-        const actNoticias = await Noticias.findByIdAndUpdate(req.params.noticiaId, req.body, {new: true})
+        const actNoticias = await Noticia.findByIdAndUpdate(req.params.noticiaId, req.body, {new: true})
         if (actNoticias !== null){
             res.status(200).json(actCurso)
         } else {

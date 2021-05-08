@@ -26,3 +26,6 @@ Content-Type: application/json
 
 ### istar un curso por id
 DELETE http://localhost:5000/cursos/6092021b363b3015082d9284
+
+### test noticias
+GET http://localhost:5000/noticias

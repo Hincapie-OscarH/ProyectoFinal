@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from '@angular/common/http'
+import { FormsModule } from '@angular/forms'
+import { DomSanitizer } from '@angular/platform-browser' 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +19,8 @@ import { NoticiasComponent } from './components/noticias/noticias.component';
 import { RecuperarComponent } from './components/recuperar/recuperar.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { ErrorComponent } from './components/error/error.component';
+import { Admin2Component } from './components/admin2/admin2.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -33,12 +37,15 @@ import { ErrorComponent } from './components/error/error.component';
     NoticiasComponent,
     RecuperarComponent,
     AdminComponent,
-    ErrorComponent
+    ErrorComponent,
+    Admin2Component,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
