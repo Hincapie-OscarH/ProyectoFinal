@@ -29,3 +29,6 @@ DELETE http://localhost:5000/cursos/6092021b363b3015082d9284
 
 ### test noticias
 GET http://localhost:5000/noticias
+
+### istar un curso por id
+DELETE http://localhost:5000/noticias/6099e2581a2ed047f48ce4dd

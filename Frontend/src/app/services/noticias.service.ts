@@ -13,10 +13,11 @@ export class NoticiasService {
     _id: '',
     titulo: '',
     descripcion: '',
-    imgUrl: '',
+    //imgUrl: '',
   };
 
-  noticia: Noticia[];
+  noticias:Noticia[];
+  noticia:Noticia;
 
   constructor(private http: HttpClient) {}
 
@@ -26,7 +27,7 @@ export class NoticiasService {
   getNoticiaById(_id: string) {
     return this.http.get(`${this.URL_API}/${_id}`);
   }
-  createCurso(noticia: Noticia) {
+  createNoticia(noticia: Noticia) {
     return this.http.post(this.URL_API, noticia);
   }
   deleteNoticias(_id: string) {

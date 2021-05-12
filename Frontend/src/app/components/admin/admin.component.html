@@ -1,118 +1,67 @@
 <div class="container-fluid">
-  <div class="row">
-    <!-- Form-->
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-header">Administracion de Cursos</div>
-        <div class="card-body">
-          <form #cursoForm="ngForm">
-            <div class="form-group d-flex flex-column">
-              <input
-                type="hidden"
-                id="_id"
-                name="_id"
-                #name="ngModel"
-                [(ngModel)]="cursosService.selectedCurso._id"
-                class="form-control"
-              />
+    <div class="row">
+        <!-- Form-->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">Administracion de Cursos</div>
+                <div class="card-body">
+                    <form #cursoForm="ngForm">
+                        <div class="form-group d-flex flex-column">
+                            <input type="hidden" id="_id" name="_id" #name="ngModel" [(ngModel)]="cursosService.selectedCurso._id" class="form-control" />
+                        </div>
+                        <div class="form-group d-flex flex-column">
+                            <label for="nombre">Nombre Del Curso</label>
+                            <input type="text" id="nombre" name="nombre" #name="ngModel" [(ngModel)]="cursosService.selectedCurso.nombre" class="form-control" />
+                        </div>
+                        <div class="form-group d-flex flex-column">
+                            <label for="precio">Precio del Curso</label>
+                            <input type="text" id="precio" name="precio" #name="ngModel" [(ngModel)]="cursosService.selectedCurso.precio" class="form-control" />
+                        </div>
+                        <div class="form-group d-flex flex-column">
+                            <label for="descripcion">descripcion del Curso</label>
+                            <input type="text" id="descripcion" name="descripcion" #name="ngModel" [(ngModel)]="cursosService.selectedCurso.descripcion" class="form-control" />
+                        </div>
+                        <div class="form-group d-flex flex-column">
+                            <label for="imagen">Imagen del curso</label>
+                            <input type="text" id="imagen" name="imagen" #name="ngModel" [(ngModel)]="cursosService.selectedCurso.imagen" class="form-control" />
+                        </div>
+                        <div class="form-group d-flex flex-column">
+                            <label for="imgUrl">video del Curso</label>
+                            <input type="text" id="videoUrl" name="videoUrl" #name="ngModel" [(ngModel)]="cursosService.selectedCurso.videoUrl" class="form-control" />
+                        </div>
+                        <button class="btn btn-success m-2" (click)="createService(cursoForm)">
+                            Guardar
+                        </button>
+                        <button class="btn btn-info m-2" (click)="cleanForm(cursoForm)">
+                            Limpiar
+                        </button>
+                    </form>
+                </div>
             </div>
-            <div class="form-group d-flex flex-column">
-              <label for="nombre">Nombre Del Curso</label>
-              <input
-                type="text"
-                id="nombre"
-                name="nombre"
-                #name="ngModel"
-                [(ngModel)]="cursosService.selectedCurso.nombre"
-                class="form-control"
-              />
-            </div>
-            <div class="form-group d-flex flex-column">
-              <label for="precio">Precio del Curso</label>
-              <input
-                type="text"
-                id="precio"
-                name="precio"
-                #name="ngModel"
-                [(ngModel)]="cursosService.selectedCurso.precio"
-                class="form-control"
-              />
-            </div>
-            <div class="form-group d-flex flex-column">
-              <label for="descripcion">descripcion del Curso</label>
-              <input
-                type="text"
-                id="descripcion"
-                name="descripcion"
-                #name="ngModel"
-                [(ngModel)]="cursosService.selectedCurso.descripcion"
-                class="form-control"
-              />
-            </div>
-            <div class="form-group d-flex flex-column">
-              <label for="imagen">Imagen del curso</label>
-              <input
-                type="text"
-                id="imagen"
-                name="imagen"
-                #name="ngModel"
-                [(ngModel)]="cursosService.selectedCurso.imagen"
-                class="form-control"
-              />
-            </div>
-            <div class="form-group d-flex flex-column">
-              <label for="imgUrl">video del Curso</label>
-              <input
-                type="text"
-                id="videoUrl"
-                name="videoUrl"
-                #name="ngModel"
-                [(ngModel)]="cursosService.selectedCurso.videoUrl"
-                class="form-control"
-              />
-            </div>
-            <button
-              class="btn btn-success m-2"
-              (click)="createService(cursoForm)"
-            >
-              Guardar
-            </button>
-            <button class="btn btn-info m-2" (click)="cleanForm(cursoForm)">
-              Limpiar
-            </button>
-          </form>
         </div>
-      </div>
+        <!-- Tabla -->
+        <div class="col-md-8">
+            <table class="table table-striped">
+                <thead>
+                    <th>Nombre</th>
+                    <th>Prcio</th>
+                    <th>Imagen</th>
+                    <th>Video</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let curso of cursosService.cursos">
+                        <td>{{ curso.nombre }}</td>
+                        <td>{{ curso.precio }}</td>
+                        <td>{{ curso.imagen }}</td>
+                        <td>{{ curso.videoUrl }}</td>
+                        <!-- Buttons -->
+                        <td>
+                            <a (click)="updateService(curso)" class="mx-2 btn btn-warning">Editar</a>
+                            <a (click)="deleteService(curso._id)" class="mx-2 btn btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <!-- Tabla -->
-    <div class="col-md-8">
-      <table class="table table-striped">
-        <thead>
-          <th>Nombre</th>
-          <th>Prcio</th>
-          <th>Imagen</th>
-          <th>Video</th>
-        </thead>
-        <tbody>
-          <tr *ngFor="let curso of cursosService.cursos">
-            <td>{{ curso.nombre }}</td>
-            <td>{{ curso.precio }}</td>
-            <td>{{ curso.imagen }}</td>
-            <td>{{ curso.videoUrl }}</td>
-            <!-- Buttons -->
-            <td>
-              <a (click)="updateService(curso)" class="mx-2 btn btn-warning"
-                >Editar</a
-              >
-              <a
-                (click)="deleteService(curso._id)"
-                class="mx-2 btn btn-danger"
-                >Eliminar</a
-              >
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
 </div>

@@ -1,0 +1,15 @@
+.txt {
+    text-align: center;
+}
+
+.boton1 {
+    background-color: #212529;
+    border-color: orange;
+    color: orange;
+    margin-left: 60px;
+}
+
+.boton1:hover {
+    background-color: orange;
+    color: #212529;
+}

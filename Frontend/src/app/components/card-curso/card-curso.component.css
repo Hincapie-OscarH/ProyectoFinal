@@ -13,3 +13,7 @@
     width: 50 px;
     height: 50 px;
 }
+
+.carta {
+    border: gainsboro 5px dashed;
+}

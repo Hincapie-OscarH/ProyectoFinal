@@ -1,1 +1,57 @@
-<p>admin2 works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Form-->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">Administracion de noticias</div>
+                <div class="card-body">
+                    <form #noticiaForm="ngForm">
+                        <div class="form-group d-flex flex-column">
+                            <input type="hidden" id="_id" name="_id" #name="ngModel" [(ngModel)]="noticiasService.selectedNoticia._id" class="form-control" />
+                        </div>
+                        <div class="form-group d-flex flex-column">
+                            <label for="titulo">Nombre De la noticia</label>
+                            <input type="text" id="titulo" name="titulo" #name="ngModel" [(ngModel)]="noticiasService.selectedNoticia.titulo" class="form-control" />
+                        </div>
+                        <div class="form-group d-flex flex-column">
+                            <label for="descripcion">descripcion del noticia</label>
+                            <input type="text" id="descripcion" name="descripcion" #name="ngModel" [(ngModel)]="noticiasService.selectedNoticia.descripcion" class="form-control" />
+                        </div>
+                        <div class="form-group d-flex flex-column">
+                            <label for="imgUrl">Imagen del noticia</label>
+                            <input type="text" id="imgUrl" name="imgUrl" #name="ngModel" [(ngModel)]="noticiasService.selectedNoticia.imgUrl" class="form-control" />
+                        </div>
+                        <button class="btn btn-success m-2" (click)="createService(noticiaForm)">
+                            Guardar
+                        </button>
+                        <button class="btn btn-info m-2" (click)="cleanForm(noticiaForm)">
+                            Limpiar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Tabla -->
+        <div class="col-md-8">
+            <table class="table table-striped">
+                <thead>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Imagen</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let noticia of noticiasService.noticias">
+                        <td>{{ noticia.titulo }}</td>
+                        <td>{{ noticia.descripcion }}</td>
+                        <td>{{ noticia.imgUrl }}</td>
+                        <!-- Buttons -->
+                        <td>
+                            <a (click)="updateService(noticia)" class="mx-2 btn btn-warning mb-1">Editar</a>
+                            <a (click)="deleteService(noticia._id)" class="mx-2 btn btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

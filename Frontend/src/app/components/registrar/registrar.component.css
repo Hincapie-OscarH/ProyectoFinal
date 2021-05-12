@@ -1,0 +1,10 @@
+.boton1 {
+    background-color: #212529;
+    border-color: orange;
+    color: orange;
+}
+
+.boton1:hover {
+    background-color: orange;
+    color: #212529;
+}

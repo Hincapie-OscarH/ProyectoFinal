@@ -1,11 +1,11 @@
-<!--<div class="d-flex flex-wrap justify-content-center">
-    <div *ngFor="let curso of cursosService.products" class="m-4">
-        <div class="card" style="width: 18rem;">
-            <img src="" class="card-img-top img" alt="...">
+<div class="d-flex flex-wrap justify-content-center">
+    <div *ngFor="let noticia of noticiasService.noticias" class="m-4">
+        <div class="card carta" style="width: 18rem;">
+            <!--img src={{noticia.imgUrl}} class="card-img-top img" alt="..."-->
             <div class="card-body">
-                <h5 class="card-title">"" </h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title">{{noticia.titulo}}</h5>
+                <p class="card-text">{{noticia.descripcion}}</p>
             </div>
         </div>
     </div>
-</div>-->
+</div>

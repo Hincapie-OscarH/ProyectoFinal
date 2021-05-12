@@ -1,21 +1,16 @@
 <app-navbar></app-navbar>
 <div class="container d-flex flex-column mt-4">
-  <!-- Video -->
-  <div class="">
-    <iframe
-      id="ytplayer"
-      type="text/html"
-      width="800"
-      height="400"
-      [src]="cursosService.curso.videoSafe"
-      frameborder="0"
-    >
+    <!-- Video -->
+    <div class="">
+        <iframe id="ytplayer" type="text/html" width="800" height="400" [src]="cursosService.curso.videoSafe" frameborder="0">
     </iframe>
-  </div>
+    </div>
 
-  <!--Info-->
-  <div class="container mt-2">
-    <h1>{{ cursosService.curso.nombre }}</h1>
-    <p class="mt-4">{{ cursosService.curso.descripcion}}</p>
-  </div>
+    <!--Info-->
+    <div class="container mt-2">
+        <h1>{{ cursosService.curso.nombre }}</h1>
+        <p class="mt-4">{{ cursosService.curso.descripcion}}</p>
+    </div>
 </div>
+
+<app-foot></app-foot>
